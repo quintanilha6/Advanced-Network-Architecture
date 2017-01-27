@@ -1,0 +1,14 @@
+Jan 23 15:21:31.767 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 23 15:21:31.767 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 22508.
+Jan 23 15:21:31.783 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 23 15:21:31.799 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 23 15:21:31.799 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 23 15:21:31.814 HYPERVISOR: exec_cmd: ethsw create SW8 
+Jan 23 15:21:50.494 HYPERVISOR: exec_cmd: nio create_udp udp-3df44d3c-4e00-4a3a-af40-36c19450b7a4 10085 127.0.0.1 10084 
+Jan 23 15:21:50.510 HYPERVISOR: exec_cmd: ethsw add_nio SW8 udp-3df44d3c-4e00-4a3a-af40-36c19450b7a4 
+Jan 23 15:21:50.545 HYPERVISOR: exec_cmd: ethsw set_access_port SW8 udp-3df44d3c-4e00-4a3a-af40-36c19450b7a4 1 
+Jan 23 15:22:20.797 HYPERVISOR: exec_cmd: ethsw rename SW8 netB1 
+Jan 23 15:57:47.610 HYPERVISOR: exec_cmd: ethsw delete netB1 
+Jan 23 15:57:47.672 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 23 15:57:48.141 HYPERVISOR: Stopped.
+Jan 23 15:57:48.141 GENERAL: reset done.

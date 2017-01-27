@@ -1,0 +1,51 @@
+Jan 27 15:17:36.462 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 27 15:17:36.462 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 1107.
+Jan 27 15:17:36.494 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 27 15:17:36.509 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 27 15:17:36.806 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 27 15:17:36.806 HYPERVISOR: exec_cmd: vm create Setubal 3 c7200 
+Jan 27 15:17:36.837 VM: VM Setubal created.
+Jan 27 15:17:36.837 HYPERVISOR: exec_cmd: vm set_con_tcp_port Setubal 5002 
+Jan 27 15:17:36.853 HYPERVISOR: exec_cmd: c7200 get_mac_addr Setubal 
+Jan 27 15:17:36.869 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:36.884 HYPERVISOR: exec_cmd: vm slot_add_binding Setubal 0 0 C7200-IO-FE 
+Jan 27 15:17:36.884 HYPERVISOR: exec_cmd: c7200 set_mac_addr Setubal ca03.2fb4.0000 
+Jan 27 15:17:36.900 HYPERVISOR: exec_cmd: vm set_nvram Setubal 512 
+Jan 27 15:17:36.916 HYPERVISOR: exec_cmd: vm set_ios Setubal C:/Users/Quintanilha/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+Jan 27 15:17:36.931 HYPERVISOR: exec_cmd: vm set_exec_area Setubal 64 
+Jan 27 15:17:36.962 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:36.978 HYPERVISOR: exec_cmd: vm set_idle_pc Setubal 0x61e05874 
+Jan 27 15:17:37.025 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:37.072 HYPERVISOR: exec_cmd: vm slot_add_binding Setubal 1 0 PA-2FE-TX 
+Jan 27 15:17:37.087 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:37.119 HYPERVISOR: exec_cmd: vm slot_add_binding Setubal 2 0 PA-FE-TX 
+Jan 27 15:17:37.150 HYPERVISOR: exec_cmd: vm set_disk0 Setubal 0 
+Jan 27 15:17:37.166 HYPERVISOR: exec_cmd: vm set_ram Setubal 512 
+Jan 27 15:17:37.212 HYPERVISOR: exec_cmd: vm set_config Setubal configs/i3_startup-config.cfg 
+Jan 27 15:17:40.624 HYPERVISOR: exec_cmd: nio create_udp udp-6ee33e6d-e33b-4cbe-86e1-c2ab5da70de6 10000 127.0.0.1 10001 
+Jan 27 15:17:40.670 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Setubal 1 1 udp-6ee33e6d-e33b-4cbe-86e1-c2ab5da70de6 
+Jan 27 15:17:40.702 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:41.024 HYPERVISOR: exec_cmd: nio create_udp udp-f41f7230-45c8-4526-9fba-3438c52f46ba 10009 127.0.0.1 10008 
+Jan 27 15:17:41.040 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Setubal 2 0 udp-f41f7230-45c8-4526-9fba-3438c52f46ba 
+Jan 27 15:17:41.056 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:41.119 HYPERVISOR: exec_cmd: nio create_udp udp-b8513645-6ead-48c3-9505-c3cd2c644b88 10010 127.0.0.1 10011 
+Jan 27 15:17:41.141 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Setubal 0 0 udp-b8513645-6ead-48c3-9505-c3cd2c644b88 
+Jan 27 15:17:41.172 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:41.225 HYPERVISOR: exec_cmd: nio create_udp udp-246312dc-395f-4d9a-8263-d86a3a222c11 10014 127.0.0.1 10015 
+Jan 27 15:17:41.272 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Setubal 1 0 udp-246312dc-395f-4d9a-8263-d86a3a222c11 
+Jan 27 15:17:41.303 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:48.089 HYPERVISOR: exec_cmd: vm set_ghost_status Setubal 2 
+Jan 27 15:17:48.110 HYPERVISOR: exec_cmd: vm set_ghost_file Setubal c7200-advipservicesk9-mz.152-4.S5.image-512.ghost 
+Jan 27 15:17:48.122 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:17:48.150 HYPERVISOR: exec_cmd: vm start Setubal 
+Jan 27 15:49:42.974 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:49:43.015 HYPERVISOR: exec_cmd: vm stop Setubal 
+Jan 27 15:49:43.273 VM: VM Setubal shutdown.
+Jan 27 15:49:43.294 HYPERVISOR: exec_cmd: vm extract_config Setubal 
+Jan 27 15:50:18.646 HYPERVISOR: exec_cmd: vm get_status Setubal 
+Jan 27 15:50:18.715 HYPERVISOR: exec_cmd: vm extract_config Setubal 
+Jan 27 15:50:18.800 HYPERVISOR: exec_cmd: vm delete Setubal 
+Jan 27 15:50:18.800 VM: VM Setubal destroyed.
+Jan 27 15:50:18.947 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 27 15:50:19.016 HYPERVISOR: Stopped.
+Jan 27 15:50:19.016 GENERAL: reset done.

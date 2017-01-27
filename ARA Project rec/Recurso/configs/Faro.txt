@@ -1,0 +1,47 @@
+conf t
+ipv6 unicast-routing
+
+int f0/0
+ip add 192.100.1.21 255.255.255.252
+no shut
+ip ospf 1 area 0
+ipv6 enable 
+ipv6 add 2001:100:1:B000::1/52
+ipv6 ospf 1 area 0
+
+int f1/0
+ip add 192.100.1.18 255.255.255.252
+no shut
+ip ospf 1 area 0
+ipv6 enable 
+ipv6 add 2001:100:1:9000::2/52
+ipv6 ospf 1 area 0
+
+
+end 
+
+
+!-----------------MPS---------
+
+conf t
+
+int loopback0
+ip add 10.0.2.5 255.255.255.255
+ip ospf 1 area 0
+no shut
+
+int f0/0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+
+int f1/0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+
+! OSPF MPLS
+router ospf 1
+mpls traffic-eng area 0
+mpls traffic-eng router-id Loopback 0
+end

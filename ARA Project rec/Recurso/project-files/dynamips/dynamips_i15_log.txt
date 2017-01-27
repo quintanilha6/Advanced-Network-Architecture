@@ -1,0 +1,16 @@
+Jan 27 15:17:38.791 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 27 15:17:38.791 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 1137.
+Jan 27 15:17:38.947 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 27 15:17:38.978 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 27 15:17:38.978 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 27 15:17:39.150 HYPERVISOR: exec_cmd: ethsw create netL2 
+Jan 27 15:17:41.603 HYPERVISOR: exec_cmd: nio create_udp udp-7079fcc7-0215-4e5e-ba66-533372a9219e 10025 127.0.0.1 10024 
+Jan 27 15:17:41.641 HYPERVISOR: exec_cmd: ethsw add_nio netL2 udp-7079fcc7-0215-4e5e-ba66-533372a9219e 
+Jan 27 15:17:41.704 HYPERVISOR: exec_cmd: ethsw set_access_port netL2 udp-7079fcc7-0215-4e5e-ba66-533372a9219e 1 
+Jan 27 15:17:42.514 HYPERVISOR: exec_cmd: nio create_udp udp-f4f791a7-edbd-4c6e-aa83-15a739f89938 10050 127.0.0.1 10051 
+Jan 27 15:17:42.549 HYPERVISOR: exec_cmd: ethsw add_nio netL2 udp-f4f791a7-edbd-4c6e-aa83-15a739f89938 
+Jan 27 15:17:42.596 HYPERVISOR: exec_cmd: ethsw set_access_port netL2 udp-f4f791a7-edbd-4c6e-aa83-15a739f89938 1 
+Jan 27 15:50:18.199 HYPERVISOR: exec_cmd: ethsw delete netL2 
+Jan 27 15:50:18.299 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 27 15:50:18.462 HYPERVISOR: Stopped.
+Jan 27 15:50:18.462 GENERAL: reset done.

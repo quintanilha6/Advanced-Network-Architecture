@@ -1,0 +1,180 @@
+conf t
+ipv6 unicast-routing
+
+int loopback0
+ip add 10.0.2.1 255.255.255.255
+ip ospf 1 area 0
+
+
+int f0/0
+ip add 10.0.0.1 255.255.255.240
+no shut
+ip ospf 1 area 0
+ipv6 enable 
+ipv6 add 2001:100:1:F000::1/64
+ipv6 ospf 1 area 0
+
+int f1/1
+ip add 4.4.4.9 255.255.255.252
+no shut
+ipv6 enable 
+ipv6 add 2001:4:4:3::2/64
+
+int f1/0
+ip add 4.4.4.2 255.255.255.252
+no shut
+ipv6 enable 
+ipv6 add 2001:4:4:1::2/64
+
+end
+write
+
+!BGP config
+conf t
+router bgp 8000
+address-family ipv4 unicast
+redistribute ospf 1 
+
+!Ethernet core
+network 10.0.0.0 mask 255.255.240.0 
+
+!Guarda
+neighbor 10.0.2.2 remote-as 8000 
+neighbor 10.0.2.2 next-hop-self
+neighbor 10.0.2.2 update-source Loopback 0
+
+!Lisboa
+neighbor 10.0.2.3 remote-as 8000  
+neighbor 10.0.2.3 next-hop-self
+neighbor 10.0.2.3 update-source Loopback 0
+
+!Setubal
+neighbor 10.0.2.4 remote-as 8000 
+neighbor 10.0.2.4 next-hop-self
+neighbor 10.0.2.4 update-source Loopback 0
+
+!Agregar endereços
+aggregate-address 110.1.1.0 255.255.255.0 summary-only
+aggregate-address 111.1.1.0 255.255.255.0 summary-only
+aggregate-address 192.100.1.0 255.255.255.0 summary-only
+
+!External BGP
+
+!Neighboring with London
+neighbor 4.4.4.1 remote-as 30000 
+
+!Neighboring with London
+neighbor 4.4.4.10 remote-as 40000
+
+end
+
+!BGP IPv6
+conf t
+router bgp 8000
+address-family ipv6 unicast
+redistribute ospf 1
+
+network 2001:100:1::/48
+
+!Guarda
+neighbor 2001:100:1:F000::2 remote-as 8000
+neighbor 2001:100:1:F000::2 activate
+
+!Lisboa
+neighbor 2001:100:1:F000::3 remote-as 8000
+neighbor 2001:100:1:F000::3 activate
+
+!Setubal
+neighbor 2001:100:1:F000::4 remote-as 8000
+neighbor 2001:100:1:F000::4 activate
+
+
+
+!External BGP IPv6
+neighbor 2001:4:4:1::1 remote-as 30000
+neighbor 2001:4:4:1::1 activate
+
+neighbor 2001:4:4:3::1 remote-as 40000
+neighbor 2001:4:4:3::1 activate
+
+end
+
+
+!Route Map - NON TRANSIT
+conf t
+ip as-path access-list 1 permit ^$ 
+route-map non-transit 
+match as-path 1 
+
+router bgp 8000
+address-family ipv4 unicast
+neighbor 4.4.4.1 route-map non-transit out 
+neighbor 4.4.4.10 route-map non-transit out 
+
+address-family ipv6 unicast
+neighbor 2001:4:4:1::1 route-map non-transit out
+neighbor 2001:4:4:3::1 route-map non-transit out
+
+end
+
+
+!DENY private networks of ISPX de sairem
+conf t
+ip access-list standard fOut-priv-default
+10 deny 10.0.0.0 0.0.255.255
+16 deny 0.0.0.0 0.0.0.0
+100 permit any
+
+router bgp 8000
+address-family ipv4 unicast
+neighbor 4.4.4.1 distribute-list fOut-priv-default out
+neighbor 4.4.4.10 distribute-list fOut-priv-default out
+
+address-family ipv6 unicast
+neighbor 2001:4:4:1::1 activate
+neighbor 2001:4:4:1::1 distribute-list fOut-priv-default out
+neighbor 2001:4:4:3::1 activate
+neighbor 2001:4:4:3::1 distribute-list fOut-priv-default out
+end
+
+
+!Traffic Internet
+conf t
+
+ip as-path access-list 2 permit 30000$ 
+
+!through ISP L
+route-map RM-AS30000-traffic permit 5
+match as-path 2
+set local-preference 100
+
+route-map RM-AS30000-traffic permit 10
+set local-preference 300
+
+
+
+!through ISP S
+route-map RM-AS30000-traffic-Sintra  permit 5
+match as-path 2
+set local-preference 100
+
+route-map RM-AS30000-traffic-Sintra permit 10
+set local-preference 250
+
+
+
+router bgp 8000
+address-family ipv4 unicast
+neighbor 4.4.4.1 route-map RM-AS30000-traffic in
+neighbor 4.4.4.10 route-map RM-AS30000-traffic-Sintra in
+
+address-family ipv6 unicast
+neighbor 2001:4:4:1::1 route-map RM-AS30000-traffic in
+neighbor 2001:4:4:3::1 route-map RM-AS30000-traffic-Sintra in
+
+end
+
+
+
+
+

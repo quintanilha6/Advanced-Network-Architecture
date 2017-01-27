@@ -1,0 +1,44 @@
+Jan 23 12:51:21.281 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 23 12:51:21.297 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 21784.
+Jan 23 12:51:21.318 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 23 12:51:21.320 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 23 12:51:21.320 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 23 12:51:21.320 HYPERVISOR: exec_cmd: vm create R1 14 c7200 
+Jan 23 12:51:21.320 VM: VM R1 created.
+Jan 23 12:51:21.335 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5041 
+Jan 23 12:51:21.335 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Jan 23 12:51:21.335 HYPERVISOR: exec_cmd: vm get_status R1 
+Jan 23 12:51:21.351 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Jan 23 12:51:21.351 HYPERVISOR: exec_cmd: vm get_status R1 
+Jan 23 12:51:21.351 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x609198e4 
+Jan 23 12:51:21.367 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Jan 23 12:51:21.367 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Jan 23 12:51:21.382 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/Quintanilha/GNS3/images/IOS/c7200-jk9o3s-mz.123-8.T.bin 
+Jan 23 12:51:21.382 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Jan 23 12:51:21.382 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Jan 23 12:51:21.398 HYPERVISOR: exec_cmd: vm set_config R1 configs/i14_startup-config.cfg 
+Jan 23 12:52:21.750 HYPERVISOR: exec_cmd: vm rename R1 EmpC 
+Jan 23 12:53:00.807 HYPERVISOR: exec_cmd: nio create_udp udp-a30670dd-bf84-46f8-8e59-3944980a1954 10101 127.0.0.1 10100 
+Jan 23 12:53:00.809 HYPERVISOR: exec_cmd: vm slot_add_nio_binding EmpC 0 0 udp-a30670dd-bf84-46f8-8e59-3944980a1954 
+Jan 23 12:53:00.809 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 12:53:06.196 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 12:53:06.216 HYPERVISOR: exec_cmd: vm slot_add_binding EmpC 1 0 PA-FE-TX 
+Jan 23 12:53:10.552 HYPERVISOR: exec_cmd: nio create_udp udp-8248d438-8497-44e9-af3d-311618bfb230 10102 127.0.0.1 10103 
+Jan 23 12:53:10.583 HYPERVISOR: exec_cmd: vm slot_add_nio_binding EmpC 1 0 udp-8248d438-8497-44e9-af3d-311618bfb230 
+Jan 23 12:53:10.583 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 15:20:59.198 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 15:20:59.229 HYPERVISOR: exec_cmd: vm slot_remove_nio_binding EmpC 1 0 
+Jan 23 15:20:59.244 HYPERVISOR: exec_cmd: nio delete udp-8248d438-8497-44e9-af3d-311618bfb230 
+Jan 23 15:22:44.019 HYPERVISOR: exec_cmd: nio create_udp udp-721216a5-8638-4697-bd02-b66e3eded369 10098 127.0.0.1 10099 
+Jan 23 15:22:44.035 HYPERVISOR: exec_cmd: vm slot_add_nio_binding EmpC 1 0 udp-721216a5-8638-4697-bd02-b66e3eded369 
+Jan 23 15:22:44.035 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 15:56:29.798 HYPERVISOR: exec_cmd: vm extract_config EmpC 
+Jan 23 15:56:58.421 HYPERVISOR: exec_cmd: vm extract_config EmpC 
+Jan 23 15:57:47.594 HYPERVISOR: exec_cmd: vm extract_config EmpC 
+Jan 23 15:57:48.311 HYPERVISOR: exec_cmd: vm get_status EmpC 
+Jan 23 15:57:48.395 HYPERVISOR: exec_cmd: vm extract_config EmpC 
+Jan 23 15:57:48.496 HYPERVISOR: exec_cmd: vm delete EmpC 
+Jan 23 15:57:48.496 VM: VM EmpC destroyed.
+Jan 23 15:57:48.596 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 23 15:57:48.643 HYPERVISOR: Stopped.
+Jan 23 15:57:48.643 GENERAL: reset done.

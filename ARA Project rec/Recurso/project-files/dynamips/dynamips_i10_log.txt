@@ -1,0 +1,51 @@
+Jan 27 15:17:37.869 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 27 15:17:37.869 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 1126.
+Jan 27 15:17:38.009 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 27 15:17:38.041 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 27 15:17:38.041 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 27 15:17:38.072 HYPERVISOR: exec_cmd: vm create Guarda 9 c7200 
+Jan 27 15:17:38.088 VM: VM Guarda created.
+Jan 27 15:17:38.103 HYPERVISOR: exec_cmd: vm set_con_tcp_port Guarda 5008 
+Jan 27 15:17:38.134 HYPERVISOR: exec_cmd: c7200 get_mac_addr Guarda 
+Jan 27 15:17:38.197 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:38.275 HYPERVISOR: exec_cmd: vm slot_add_binding Guarda 0 0 C7200-IO-FE 
+Jan 27 15:17:38.322 HYPERVISOR: exec_cmd: c7200 set_mac_addr Guarda ca09.0a64.0000 
+Jan 27 15:17:38.353 HYPERVISOR: exec_cmd: vm set_nvram Guarda 512 
+Jan 27 15:17:38.369 HYPERVISOR: exec_cmd: vm set_ios Guarda C:/Users/Quintanilha/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+Jan 27 15:17:38.400 HYPERVISOR: exec_cmd: vm set_exec_area Guarda 64 
+Jan 27 15:17:38.416 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:38.447 HYPERVISOR: exec_cmd: vm set_idle_pc Guarda 0x61e05874 
+Jan 27 15:17:38.478 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:38.494 HYPERVISOR: exec_cmd: vm slot_add_binding Guarda 1 0 PA-2FE-TX 
+Jan 27 15:17:38.525 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:38.556 HYPERVISOR: exec_cmd: vm slot_add_binding Guarda 2 0 PA-FE-TX 
+Jan 27 15:17:38.588 HYPERVISOR: exec_cmd: vm set_disk0 Guarda 0 
+Jan 27 15:17:38.634 HYPERVISOR: exec_cmd: vm set_ram Guarda 512 
+Jan 27 15:17:38.666 HYPERVISOR: exec_cmd: vm set_config Guarda configs/i9_startup-config.cfg 
+Jan 27 15:17:41.125 HYPERVISOR: exec_cmd: nio create_udp udp-28eb484f-9c1f-4a67-bd2b-2ce5b6fdd552 10012 127.0.0.1 10013 
+Jan 27 15:17:41.156 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Guarda 0 0 udp-28eb484f-9c1f-4a67-bd2b-2ce5b6fdd552 
+Jan 27 15:17:41.172 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:41.256 HYPERVISOR: exec_cmd: nio create_udp udp-aa80e343-df2d-4a2c-93fd-092e58d6ab07 10015 127.0.0.1 10014 
+Jan 27 15:17:41.303 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Guarda 2 0 udp-aa80e343-df2d-4a2c-93fd-092e58d6ab07 
+Jan 27 15:17:41.325 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:41.357 HYPERVISOR: exec_cmd: nio create_udp udp-613aca26-8d25-47d1-9c7b-a2b12f119c76 10016 127.0.0.1 10017 
+Jan 27 15:17:41.372 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Guarda 1 1 udp-613aca26-8d25-47d1-9c7b-a2b12f119c76 
+Jan 27 15:17:41.404 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:41.457 HYPERVISOR: exec_cmd: nio create_udp udp-c2a44485-4df5-44a1-9145-fbcbcf9e2b62 10018 127.0.0.1 10019 
+Jan 27 15:17:41.525 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Guarda 1 0 udp-c2a44485-4df5-44a1-9145-fbcbcf9e2b62 
+Jan 27 15:17:41.557 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:46.398 HYPERVISOR: exec_cmd: vm set_ghost_status Guarda 2 
+Jan 27 15:17:46.414 HYPERVISOR: exec_cmd: vm set_ghost_file Guarda c7200-advipservicesk9-mz.152-4.S5.image-512.ghost 
+Jan 27 15:17:46.420 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:17:46.420 HYPERVISOR: exec_cmd: vm start Guarda 
+Jan 27 15:49:42.224 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:49:42.295 HYPERVISOR: exec_cmd: vm stop Guarda 
+Jan 27 15:49:42.539 VM: VM Guarda shutdown.
+Jan 27 15:49:42.590 HYPERVISOR: exec_cmd: vm extract_config Guarda 
+Jan 27 15:50:18.646 HYPERVISOR: exec_cmd: vm get_status Guarda 
+Jan 27 15:50:18.715 HYPERVISOR: exec_cmd: vm extract_config Guarda 
+Jan 27 15:50:18.815 HYPERVISOR: exec_cmd: vm delete Guarda 
+Jan 27 15:50:18.815 VM: VM Guarda destroyed.
+Jan 27 15:50:18.947 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 27 15:50:19.178 HYPERVISOR: Stopped.
+Jan 27 15:50:19.178 GENERAL: reset done.

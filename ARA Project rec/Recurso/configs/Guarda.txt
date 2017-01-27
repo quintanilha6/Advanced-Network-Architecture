@@ -1,0 +1,200 @@
+conf t
+ipv6 unicast-routing
+
+int loopback0
+ip add 10.0.2.2 255.255.255.255
+ip ospf 1 area 0
+
+
+int f0/0
+ip add 192.100.1.2 255.255.255.252
+no shut
+ip ospf 1 area 0
+ipv6 enable 
+ipv6 add 2001:100:1:3000::1/52
+ipv6 ospf 1 area 0
+
+
+
+int f1/0
+ip add 192.100.1.5 255.255.255.252
+no shut
+ip ospf 1 area 0
+ipv6 enable
+ipv6 add 2001:100:1:5000::1/52
+ipv6 ospf 1 area 0
+
+int f2/0
+ip add 192.100.1.9 255.255.255.252
+no shut
+ip ospf 1 area 0
+ipv6 enable
+ipv6 add 2001:100:1:1000::1/52
+ipv6 ospf 1 area 0
+
+int f1/1
+ip add 10.0.0.2 255.255.255.240
+no shut
+ip ospf 1 area 0
+ipv6 enable
+ipv6 add 2001:100:1:F000::2/64
+ipv6 ospf 1 area 0
+
+end 
+write
+
+
+!BGP config
+conf t
+router bgp 8000
+address-family ipv4 unicast
+redistribute ospf 1
+
+!Ethernet Core
+network 10.0.0.0 mask 255.255.240.0
+
+!Porto
+neighbor 10.0.2.1 remote-as 8000
+neighbor 10.0.2.1 next-hop-self
+neighbor 10.0.2.1 update-source Loopback 0
+
+!Lisboa
+neighbor 10.0.2.3 remote-as 8000
+neighbor 10.0.2.3 next-hop-self
+neighbor 10.0.2.3 update-source Loopback 0
+
+!Setubal
+neighbor 10.0.2.4 remote-as 8000
+neighbor 10.0.2.4 next-hop-self
+neighbor 10.0.2.4 update-source Loopback 0
+
+end
+
+!BGP IPv6
+conf t
+router bgp 8000
+address-family ipv6 unicast
+redistribute ospf 1
+
+network 2001:100:1::/48
+
+!Porto
+neighbor 2001:100:1:F000::1 remote-as 8000
+neighbor 2001:100:1:F000::1 activate
+
+!Lisboa
+neighbor 2001:100:1:F000::3 remote-as 8000
+neighbor 2001:100:1:F000::3 activate
+
+!Setubal
+neighbor 2001:100:1:F000::4 remote-as 8000
+neighbor 2001:100:1:F000::4 activate
+
+end
+
+-------------------------------------------
+!para AS30000 vai pelo Porto
+conf t
+ip as-path access-list 1 permit 30000$ 
+route-map RM-Guarda-to-AS30000
+match as-path 1
+set local-preference 350
+
+
+router bgp 8000
+address-family ipv4 unicast
+neighbor 10.0.2.1 route-map RM-Guarda-to-AS30000 in
+---------------------------------------------------
+
+
+!---------------------MPLS----------------------------
+
+conf t 
+
+int f1/0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+int f1/1
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+int f2/0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+
+! OSPF MPLS
+router ospf 1
+mpls traffic-eng area 0
+mpls traffic-eng router-id Loopback 0
+end
+
+
+
+---------------------MPLS VPN-----------------------
+!VPN EMPA1
+conf t
+
+!declara que que esta vrf tem o identificador 1, para nao misturar com outras possiveis vpn's
+ip vrf VPN-1
+rd 8000:1
+route-target export 8000:1
+route-target import 8000:1
+
+!Associar a VRF/VPN á interface que liga com EmpA1
+int f0/0
+ip vrf forwarding VPN-1
+ip add 192.100.1.2 255.255.255.252
+no shutdown
+
+!Identificar os provider edge para saber os pacotes que pertencem ás vpn's
+router bgp 8000
+bgp router-id 10.10.10.1    	!Router ID
+address-family vpnv4
+neighbor 10.0.2.4 activate
+neighbor 10.0.2.4 send-community both
+exit
+address-family ipv4 vrf VPN-1
+redistribute connected
+
+end
+ 
+
+!------------------------------------------------------
+!External Connectivity, announcing the routes it has for VPN
+!Indicar as redes de fora, quais as redes que estao disponieis dentro da VRF
+conf t
+ip route 110.1.1.0 255.255.255.128 f0/0 192.100.1.1
+ip route 10.0.2.0 255.255.255.0 f0/0 
+!------------------------------------------------------
+
+!---------------------------------------------------
+!Indicar a rede da VPN como sair para fora da rede interna
+!ip route vrf VPN-1 0.0.0.0 0.0.0.0 10.0.2.1 global !PORTO
+!ip route vrf VPN-1 0.0.0.0 0.0.0.0 10.0.2.3 global !LISBOA
+
+router ospf 1
+redistribute static subnets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

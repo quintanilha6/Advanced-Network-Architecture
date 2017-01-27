@@ -1,0 +1,38 @@
+Jan 23 12:43:59.747 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 23 12:43:59.747 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 21757.
+Jan 23 12:43:59.747 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 23 12:43:59.763 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 23 12:43:59.763 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 23 12:43:59.763 HYPERVISOR: exec_cmd: vm create R1 13 c7200 
+Jan 23 12:43:59.763 VM: VM R1 created.
+Jan 23 12:43:59.779 HYPERVISOR: exec_cmd: vm set_con_tcp_port R1 5039 
+Jan 23 12:43:59.779 HYPERVISOR: exec_cmd: c7200 get_mac_addr R1 
+Jan 23 12:43:59.779 HYPERVISOR: exec_cmd: vm get_status R1 
+Jan 23 12:43:59.794 HYPERVISOR: exec_cmd: vm slot_add_binding R1 0 0 C7200-IO-FE 
+Jan 23 12:43:59.794 HYPERVISOR: exec_cmd: vm get_status R1 
+Jan 23 12:43:59.810 HYPERVISOR: exec_cmd: vm set_idle_pc R1 0x609198e4 
+Jan 23 12:43:59.810 HYPERVISOR: exec_cmd: vm set_exec_area R1 64 
+Jan 23 12:43:59.810 HYPERVISOR: exec_cmd: vm set_disk0 R1 0 
+Jan 23 12:43:59.825 HYPERVISOR: exec_cmd: vm set_ios R1 C:/Users/Quintanilha/GNS3/images/IOS/c7200-jk9o3s-mz.123-8.T.bin 
+Jan 23 12:43:59.825 HYPERVISOR: exec_cmd: vm set_nvram R1 512 
+Jan 23 12:43:59.843 HYPERVISOR: exec_cmd: vm set_ram R1 512 
+Jan 23 12:43:59.848 HYPERVISOR: exec_cmd: vm set_config R1 configs/i13_startup-config.cfg 
+Jan 23 12:44:20.219 HYPERVISOR: exec_cmd: vm rename R1 InternetCore 
+Jan 23 12:44:52.809 HYPERVISOR: exec_cmd: nio create_udp udp-fce26d65-0f60-411b-b10c-8e79b5cec368 10093 127.0.0.1 10092 
+Jan 23 12:44:52.830 HYPERVISOR: exec_cmd: vm slot_add_nio_binding InternetCore 0 0 udp-fce26d65-0f60-411b-b10c-8e79b5cec368 
+Jan 23 12:44:52.831 HYPERVISOR: exec_cmd: vm get_status InternetCore 
+Jan 23 12:45:05.032 HYPERVISOR: exec_cmd: vm get_status InternetCore 
+Jan 23 12:45:05.032 HYPERVISOR: exec_cmd: vm slot_add_binding InternetCore 1 0 PA-FE-TX 
+Jan 23 12:45:17.201 HYPERVISOR: exec_cmd: nio create_udp udp-b5866847-e8bb-4ec0-b817-fd87c89dd0ef 10095 127.0.0.1 10094 
+Jan 23 12:45:17.201 HYPERVISOR: exec_cmd: vm slot_add_nio_binding InternetCore 1 0 udp-b5866847-e8bb-4ec0-b817-fd87c89dd0ef 
+Jan 23 12:45:17.217 HYPERVISOR: exec_cmd: vm get_status InternetCore 
+Jan 23 15:56:29.867 HYPERVISOR: exec_cmd: vm extract_config InternetCore 
+Jan 23 15:56:58.490 HYPERVISOR: exec_cmd: vm extract_config InternetCore 
+Jan 23 15:57:47.873 HYPERVISOR: exec_cmd: vm extract_config InternetCore 
+Jan 23 15:57:48.342 HYPERVISOR: exec_cmd: vm get_status InternetCore 
+Jan 23 15:57:48.427 HYPERVISOR: exec_cmd: vm extract_config InternetCore 
+Jan 23 15:57:48.511 HYPERVISOR: exec_cmd: vm delete InternetCore 
+Jan 23 15:57:48.511 VM: VM InternetCore destroyed.
+Jan 23 15:57:48.612 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 23 15:57:48.891 HYPERVISOR: Stopped.
+Jan 23 15:57:48.891 GENERAL: reset done.

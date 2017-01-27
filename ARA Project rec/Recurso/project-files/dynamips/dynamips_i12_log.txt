@@ -1,0 +1,54 @@
+Jan 27 15:17:38.291 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 27 15:17:38.291 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 1131.
+Jan 27 15:17:38.447 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 27 15:17:38.478 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 27 15:17:38.478 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 27 15:17:38.509 HYPERVISOR: exec_cmd: vm create Sintra 11 c7200 
+Jan 27 15:17:38.509 VM: VM Sintra created.
+Jan 27 15:17:38.541 HYPERVISOR: exec_cmd: vm set_con_tcp_port Sintra 5010 
+Jan 27 15:17:38.572 HYPERVISOR: exec_cmd: c7200 get_mac_addr Sintra 
+Jan 27 15:17:38.603 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:38.650 HYPERVISOR: exec_cmd: vm slot_add_binding Sintra 0 0 C7200-IO-FE 
+Jan 27 15:17:38.681 HYPERVISOR: exec_cmd: c7200 set_mac_addr Sintra ca0b.2fc4.0000 
+Jan 27 15:17:38.728 HYPERVISOR: exec_cmd: vm set_nvram Sintra 512 
+Jan 27 15:17:38.775 HYPERVISOR: exec_cmd: vm set_ios Sintra C:/Users/Quintanilha/GNS3/images/IOS/c7200-advipservicesk9-mz.152-4.S5.image 
+Jan 27 15:17:38.806 HYPERVISOR: exec_cmd: vm set_exec_area Sintra 64 
+Jan 27 15:17:38.822 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:38.869 HYPERVISOR: exec_cmd: vm set_idle_pc Sintra 0x61e05874 
+Jan 27 15:17:38.884 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:38.916 HYPERVISOR: exec_cmd: vm slot_add_binding Sintra 1 0 PA-2FE-TX 
+Jan 27 15:17:38.947 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:38.963 HYPERVISOR: exec_cmd: vm slot_add_binding Sintra 2 0 PA-2FE-TX 
+Jan 27 15:17:39.134 HYPERVISOR: exec_cmd: vm set_disk0 Sintra 0 
+Jan 27 15:17:39.166 HYPERVISOR: exec_cmd: vm set_ram Sintra 512 
+Jan 27 15:17:39.213 HYPERVISOR: exec_cmd: vm set_config Sintra configs/i11_startup-config.cfg 
+Jan 27 15:17:41.673 HYPERVISOR: exec_cmd: nio create_udp udp-40554005-aeab-404a-952c-87ccd332d686 10027 127.0.0.1 10026 
+Jan 27 15:17:41.722 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Sintra 1 0 udp-40554005-aeab-404a-952c-87ccd332d686 
+Jan 27 15:17:41.754 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:41.816 HYPERVISOR: exec_cmd: nio create_udp udp-f8264d16-929d-4696-bee4-dfecb56116f3 10029 127.0.0.1 10028 
+Jan 27 15:17:41.863 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Sintra 0 0 udp-f8264d16-929d-4696-bee4-dfecb56116f3 
+Jan 27 15:17:41.878 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:41.932 HYPERVISOR: exec_cmd: nio create_udp udp-fc66be67-ca82-4415-b84b-4c28b8a3d3fa 10031 127.0.0.1 10030 
+Jan 27 15:17:41.947 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Sintra 1 1 udp-fc66be67-ca82-4415-b84b-4c28b8a3d3fa 
+Jan 27 15:17:41.979 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:42.016 HYPERVISOR: exec_cmd: nio create_udp udp-843b4ca3-9a83-4f5e-872f-f836f2599fb3 10032 127.0.0.1 10033 
+Jan 27 15:17:42.048 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Sintra 2 0 udp-843b4ca3-9a83-4f5e-872f-f836f2599fb3 
+Jan 27 15:17:42.079 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:42.132 HYPERVISOR: exec_cmd: nio create_udp udp-6dfaa441-a5bb-4d36-a377-94c9f80efb12 10034 127.0.0.1 10035 
+Jan 27 15:17:42.164 HYPERVISOR: exec_cmd: vm slot_add_nio_binding Sintra 2 1 udp-6dfaa441-a5bb-4d36-a377-94c9f80efb12 
+Jan 27 15:17:42.215 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:46.335 HYPERVISOR: exec_cmd: vm set_ghost_status Sintra 2 
+Jan 27 15:17:46.367 HYPERVISOR: exec_cmd: vm set_ghost_file Sintra c7200-advipservicesk9-mz.152-4.S5.image-512.ghost 
+Jan 27 15:17:46.367 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:17:46.382 HYPERVISOR: exec_cmd: vm start Sintra 
+Jan 27 15:49:42.228 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:49:42.300 HYPERVISOR: exec_cmd: vm stop Sintra 
+Jan 27 15:49:42.677 VM: VM Sintra shutdown.
+Jan 27 15:49:42.721 HYPERVISOR: exec_cmd: vm extract_config Sintra 
+Jan 27 15:50:18.684 HYPERVISOR: exec_cmd: vm get_status Sintra 
+Jan 27 15:50:18.762 HYPERVISOR: exec_cmd: vm extract_config Sintra 
+Jan 27 15:50:18.900 HYPERVISOR: exec_cmd: vm delete Sintra 
+Jan 27 15:50:18.900 VM: VM Sintra destroyed.
+Jan 27 15:50:18.984 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 27 15:50:19.463 HYPERVISOR: Stopped.
+Jan 27 15:50:19.463 GENERAL: reset done.

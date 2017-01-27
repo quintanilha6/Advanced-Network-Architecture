@@ -1,0 +1,22 @@
+Jan 27 15:17:37.853 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 27 15:17:37.869 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 1125.
+Jan 27 15:17:38.009 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 27 15:17:38.041 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 27 15:17:38.041 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 27 15:17:38.056 HYPERVISOR: exec_cmd: ethsw create Ethernet Core 
+Jan 27 15:17:40.887 HYPERVISOR: exec_cmd: nio create_udp udp-c53c17a7-72df-4373-ba1a-221b8db1763a 10005 127.0.0.1 10004 
+Jan 27 15:17:40.924 HYPERVISOR: exec_cmd: ethsw add_nio Ethernet Core udp-c53c17a7-72df-4373-ba1a-221b8db1763a 
+Jan 27 15:17:40.956 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernet Core udp-c53c17a7-72df-4373-ba1a-221b8db1763a 1 
+Jan 27 15:17:40.987 HYPERVISOR: exec_cmd: nio create_udp udp-b889bada-07c3-440d-a453-7a551d30d331 10007 127.0.0.1 10006 
+Jan 27 15:17:41.025 HYPERVISOR: exec_cmd: ethsw add_nio Ethernet Core udp-b889bada-07c3-440d-a453-7a551d30d331 
+Jan 27 15:17:41.040 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernet Core udp-b889bada-07c3-440d-a453-7a551d30d331 1 
+Jan 27 15:17:41.072 HYPERVISOR: exec_cmd: nio create_udp udp-6ed7fc52-65e1-4106-8826-687068f031bf 10008 127.0.0.1 10009 
+Jan 27 15:17:41.125 HYPERVISOR: exec_cmd: ethsw add_nio Ethernet Core udp-6ed7fc52-65e1-4106-8826-687068f031bf 
+Jan 27 15:17:41.156 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernet Core udp-6ed7fc52-65e1-4106-8826-687068f031bf 1 
+Jan 27 15:17:41.288 HYPERVISOR: exec_cmd: nio create_udp udp-d123784d-164c-4315-aa51-c0ba2d9a092c 10017 127.0.0.1 10016 
+Jan 27 15:17:41.321 HYPERVISOR: exec_cmd: ethsw add_nio Ethernet Core udp-d123784d-164c-4315-aa51-c0ba2d9a092c 
+Jan 27 15:17:41.357 HYPERVISOR: exec_cmd: ethsw set_access_port Ethernet Core udp-d123784d-164c-4315-aa51-c0ba2d9a092c 1 
+Jan 27 15:50:18.183 HYPERVISOR: exec_cmd: ethsw delete Ethernet Core 
+Jan 27 15:50:18.331 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 27 15:50:18.515 HYPERVISOR: Stopped.
+Jan 27 15:50:18.515 GENERAL: reset done.

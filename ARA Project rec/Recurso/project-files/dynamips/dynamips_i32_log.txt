@@ -1,0 +1,22 @@
+Jan 23 12:47:55.291 HYPERVISOR: Release 0.2.14-x86/Windows (tag 2014092320)
+Jan 23 12:47:55.292 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 21776.
+Jan 23 12:47:55.325 HYPERVISOR: exec_cmd: hypervisor version 
+Jan 23 12:47:55.331 HYPERVISOR: exec_cmd: hypervisor working_dir C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips 
+Jan 23 12:47:55.331 GENERAL: working_dir=C:\Users\Quintanilha\Desktop\ARA Project rec\Recurso\project-files\dynamips
+Jan 23 12:47:55.337 HYPERVISOR: exec_cmd: ethsw create SW3 
+Jan 23 12:48:02.631 HYPERVISOR: exec_cmd: ethsw rename SW3 netL2 
+Jan 23 12:49:16.337 HYPERVISOR: exec_cmd: nio create_udp udp-f1d121b2-f63a-4c98-a9cf-89eab52de50c 10097 127.0.0.1 10096 
+Jan 23 12:49:16.353 HYPERVISOR: exec_cmd: ethsw add_nio netL2 udp-f1d121b2-f63a-4c98-a9cf-89eab52de50c 
+Jan 23 12:49:16.391 HYPERVISOR: exec_cmd: ethsw set_access_port netL2 udp-f1d121b2-f63a-4c98-a9cf-89eab52de50c 1 
+Jan 23 12:53:00.787 HYPERVISOR: exec_cmd: nio create_udp udp-281b3eab-68b6-4117-ad26-ff9e2f58c310 10100 127.0.0.1 10101 
+Jan 23 12:53:00.809 HYPERVISOR: exec_cmd: ethsw add_nio netL2 udp-281b3eab-68b6-4117-ad26-ff9e2f58c310 
+Jan 23 12:53:00.825 HYPERVISOR: exec_cmd: ethsw set_access_port netL2 udp-281b3eab-68b6-4117-ad26-ff9e2f58c310 1 
+Jan 23 15:22:50.100 HYPERVISOR: exec_cmd: nio create_udp udp-4389be60-a436-4357-b0b3-fd6b5bfe411c 10102 127.0.0.1 10103 
+Jan 23 15:22:50.123 HYPERVISOR: exec_cmd: ethsw add_nio netL2 udp-4389be60-a436-4357-b0b3-fd6b5bfe411c 
+Jan 23 15:22:50.139 HYPERVISOR: exec_cmd: ethsw set_access_port netL2 udp-4389be60-a436-4357-b0b3-fd6b5bfe411c 1 
+Jan 23 15:22:59.864 HYPERVISOR: exec_cmd: ethsw remove_nio netL2 udp-4389be60-a436-4357-b0b3-fd6b5bfe411c 
+Jan 23 15:22:59.879 HYPERVISOR: exec_cmd: nio delete udp-4389be60-a436-4357-b0b3-fd6b5bfe411c 
+Jan 23 15:57:47.610 HYPERVISOR: exec_cmd: ethsw delete netL2 
+Jan 23 15:57:47.726 HYPERVISOR: exec_cmd: hypervisor stop 
+Jan 23 15:57:48.141 HYPERVISOR: Stopped.
+Jan 23 15:57:48.141 GENERAL: reset done.

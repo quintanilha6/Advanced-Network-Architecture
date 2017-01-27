@@ -1,0 +1,87 @@
+conf t
+ipv6 unicast-routing
+
+int f0/0
+ip add 192.100.1.22 255.255.255.252
+no shut
+ipv6 enable
+ipv6 add 2001:100:1:B000::2/52
+ip ospf 1 are 0
+ipv6 ospf 1 area 0
+
+
+int f1/0
+ip add 111.1.1.129 255.255.255.128
+no shut
+ipv6 enable
+ipv6 add 2001:111:1::129/50
+ip ospf 1 area 0 
+ipv6 ospf 1 area 0
+
+end
+
+
+!------------------MPLS-------------------
+
+conf t
+
+int loopback0
+ip add 10.0.2.7 255.255.255.255
+ip ospf 1 area 0
+no shut
+
+int f0/0
+mpls traffic-eng tunnels
+ip rsvp bandwidth 10240 10240
+
+! OSPF MPLS
+conf t
+router ospf 1
+mpls traffic-eng area 0
+mpls traffic-eng router-id Loopback 0
+end
+
+
+!++++++++++++++++++++++++++ tuneis ++++++++++++++++++++++++
+!Tunnel 1
+conf t
+
+interface tunnel 1
+ip unnumbered loopback0
+tunnel destination 10.0.2.6
+tunnel mode mpls traffic-eng
+tunnel mpls traffic-eng bandwidth 10240
+tunnel mpls traffic-eng path-option 1 explicit name core-path
+
+end
+
+!Tunnel 1 path
+conf t
+
+ip explicit-path name core-path enable
+next-address 192.100.1.21  !Faro
+next-address 192.100.1.17  !Setubal
+next-address 10.0.0.2      !Guarda pelo Core
+next-address 192.100.1.6   !Empb1
+
+!Tunnel 2
+
+interface tunnel 2
+ip unnumbered loopback0
+tunnel destination 10.0.2.6
+tunnel mode mpls traffic-eng
+tunnel mpls traffic-eng bandwidth 10240
+tunnel mpls traffic-eng path-option 1 explicit name direct-path
+
+end
+
+!Tunnel 2 path
+conf t
+
+ip explicit-path name direct-path enable
+next-address 192.100.1.21  !Faro
+next-address 192.100.1.17  !Setubal
+next-address 192.100.1.9   !Guarda directo
+next-address 192.100.1.6   !Empb1
+
+!+++++++++++++++++++++++++++++++++++++++++++++++++++++++
